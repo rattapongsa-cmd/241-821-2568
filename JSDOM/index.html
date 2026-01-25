@@ -2,11 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    เพศ:
+       <h2>แบบฟอร์มเลือกความสนใจ</h2>
+    <div id="content">
+        <!--
+        <ul>
+            <li>sports</li>
+            <li>music</li>
+            <li>reading</li>
+        </ul>
+        -->
+    </div>
+   <input type="checkbox" name="interest" value="sports"> sports
+   <input type="checkbox" name="interest" value="music"> music
+   <input type="checkbox" name="interest" value="reading"> reading
+   <br><br>
+    <button onclick="submitInterest()">Submit</button>
+    <script>
+        function submitInterest() {
+            // ดึงข้อมูลจาก checkbox ที่ถูกเลือก
+            let checkboxes = document.querySelectorAll('input[name="interest"]');
+            let contentHTML = '<ul>';
+            //เอา value ของ checkbox ที่ถูกเลือกออกมา
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    //console.log(checkboxes[i].value); // แสดงค่าที่เลือกใน console
+                    contentHTML += '<li>' + checkboxes[i].value + '</li>';
+                }
+            }
+            //วนค่าที่เลือกใส่กลับไปที่ html
+            contentHTML += '<ul>';
+            contentHTML += '</ul>';
+            // ใส่ html ที่สร้างขึ้นใหม่ลงใน div id="content"
+            let contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = contentHTML;
+        }
+    </script>
+    <script>
+        /* <h2>แบบฟอร์มความสนใจ</h2>
+    <div id="content">
+        <ul>กีฬา</li>
+        <ul>ดนตรี</li>
+        <ul>อ่านหนังสือ</li> */
+
+        /*  //     <div id="hi">Hi <span style="display: none;">A</span></div>
+        let hiDOM = document.getElementById("hi");
+       // hiDOM.innerText = "hello <b>A</b>";
+        hiDOM.innerHTML = "hello <b>A</b>";
+        console.log(hiDOM.textContent);
+        console.log(hiDOM.innerText);
+        console.log(hiDOM.innerHTML); */
+
+        /*<button 
+    onmouseover="onMouseoverFname()"
+     onmouseup="onMouseupFname()"
+     onmousedown="onMousedownFname()">Click Me!</button>
+ 
+    <script>
+        function onMouseoverFname() {
+            console.log("Mouse is Over the Button");
+        }
+        function onMouseupFname() {
+            console.log("Mouse is up the Button");
+        }
+        function onMousedownFname() {
+            console.log("Mouse is down the Button");
+        } */
+        /* //     <input type="text" name="fname" onkeyup="onkeyFname()">
+        // onkeydown คือ user กดปุ่มคีย์บอร์ดลงไป จังหวะกด
+        // onkeyup คือ user ปล่อยปุ่มคีย์บอร์ด จังหวะปล่อย
+        // onkeypress คือ user กดปุ่มคีย์บอร์ด ค้างไว้ จังหวะกดค้าง
+        function onkeyFname() {
+            let fnameInput = document.querySelector('input[name="fname"]');
+            console.log("ชื่อตอนนี้:", fnameInput.value);
+        } */   
+
+   /*เพศ:
     <input type="radio" name="gender" value="male"onchange="onchangeGender()" checked> ชาย
     <input type="radio" name="gender" value="female"onchange="onchangeGender()"> หญิง
     <script>
@@ -57,7 +131,8 @@
         console.log(fnameInput);
         for (let i = 0; i < fnameInput.length; i++) {
             console.log(fnameInput[i].value);
-        } */
+        } 
+          */ 
     </script>
 </body>
 </html>
