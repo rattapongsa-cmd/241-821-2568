@@ -50,7 +50,6 @@ app.patch('/user/:id', (req, res) => {
     }
 
     //ส่ง response กลับไปว่า update users ที่เลือกสำเร็จแล้ว
-
     res.json({
         message: 'User updated successfully',
         data: {
