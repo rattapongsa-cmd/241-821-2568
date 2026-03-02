@@ -21,19 +21,16 @@ body {
     padding: 10px;
     border-radius: 6px;
     margin-bottom: 15px;
-    display: block;
 }
 
 .message.success {
     background-color: #176b58;
     color: #ffffff;
-    display: block;
 }
 
-.message.error {
+.message.error,.message.message.danger{
     background-color: #780000; 
     color: #ffffff;
-    display: block;        
 }
 /* ตัวคอนเทนเนอร์แบบกระจก (Glassmorphism) */
 .container {
