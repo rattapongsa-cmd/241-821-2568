@@ -1,5 +1,3 @@
-//1. load user ทั้งหมดจาก api /users
-
 const BASE_URL = "http://localhost:8000";
 window.onload = async () => {
     await loadData();
@@ -10,12 +8,11 @@ const loadData = async () => {
     console.log(response.data);
     const userDOM = document.getElementById("user");
     let htmlData = '<div>';
-    //2.นำข้อมูล user ที่ได้มาใส่เข้าไปใน html
     for (let i = 0; i < response.data.length; i++) {
         let user = response.data[i];
         htmlData += ` <div>
-        ${user.firstname} ${user.lastname}
-        <button>Edit</button>
+        ${user.id} ${user.firstname} ${user.lastname}
+        <a href="index.html?id=${user.id}"><button>Edit</button></a>
         <button class='delete' data-id='${user.id}'>Delete</button>
         </div>`
     }
@@ -28,9 +25,9 @@ const loadData = async () => {
             const id = event.target.dataset.id;
             try{
                 await axios.delete(`${BASE_URL}/users/${id}`);
-                loadData(); // recursive fuction
+                loadData();
             }catch(error){
-                console.error(error);
+                console.error("Error deleting user:", error);
             }    
         });
     }
